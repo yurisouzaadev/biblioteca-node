@@ -16,7 +16,9 @@ fs.readFile(link, 'utf-8', (erro, texto) =>{
 
 function quebrarEmParagrafos(texto) {
     const paragrafos = texto.toLowerCase().split('\n');
-    const contagem = paragrafos.map((paragrafo) => {
+    const contagem = paragrafos
+        .filter((paragrafo) => paragrafo)
+        .map((paragrafo) => {
         return verificaPalavrasDuplicadas(paragrafo);
     })
     console.log(contagem);
