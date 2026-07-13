@@ -16,14 +16,17 @@ fs.readFile(link, 'utf-8', (erro, texto) =>{
 
 function quebrarEmParagrafos(texto) {
     const paragrafos = texto.toLowerCase().split('\n');
-    const contagem = paragrafos
-        .filter((paragrafo) => paragrafo)
-        .map((paragrafo) => {
+    const contagem = paragrafos.flatMap((paragrafo) => {
+        if (!paragrafo) return [];
         return verificaPalavrasDuplicadas(paragrafo);
-    })
+    }) 
     console.log(contagem);
 
 }
+
+//EX FLAT MAP:const frases = ["Olá mundo", "Tudo bem"];
+//const resultadoFlatMap = frases.flatMap(frase => frase.split(" "));
+// Saída: ["Olá", "mundo", "Tudo", "bem"]
 
 function limpaPalavras(palavra) {
     return palavra.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, '');
