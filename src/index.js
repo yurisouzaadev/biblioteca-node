@@ -11,7 +11,7 @@ fs.readFile(link, 'utf-8', (erro, texto) =>{
 
     } catch(erro) {
         //o que fazer com o erro?
-       tratarErros(erro);
+       console.log(tratarErros(erro));
     }
     
 })
